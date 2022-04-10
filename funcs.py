@@ -51,5 +51,7 @@ def find_max_analytical_efficiency(d_max: int, p: float) -> Tuple[int, float]:
     Returns: 
         (int, float): optimal d, maximal efficiency
     '''        
+    # It is possible to find the optimal d by finding the root for the efficiency derivative == 0 
+    # Although it will not be much more effective and will require importing scipy, so simple search is used  
     efficiencies = ((d, analytical_efficiency(d, p)) for d in range(2, d_max + 1)) 
     return max(efficiencies, key=lambda v: v[1])
